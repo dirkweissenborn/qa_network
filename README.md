@@ -6,7 +6,7 @@ within these files. A minimal example can be found at the end of [qa_network.py]
 
 If you use code of this repository, please make sure to cite:
 
-** Separating Answers from Queries for Neural Reading Comprehension**. Dirk Weissenborn. [*arXiv:1607.03316*](http://arxiv.org/abs/1607.03316).
+**Separating Answers from Queries for Neural Reading Comprehension**. Dirk Weissenborn. [*arXiv:1607.03316*](http://arxiv.org/abs/1607.03316).
 
 ## Installation
 
