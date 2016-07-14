@@ -256,10 +256,10 @@ class QAModel:
                     weighted_supp_queries = tf.unsorted_segment_sum(e_scores * aligned_support, query_ids, num_queries) / norm
                 
                 with tf.variable_scope("answer_accumulation"):
-                    answer_scores = tf.reduce_max(self._score_candidates(current_answer), [1], keep_dims=True)
+                    answer_p_max = tf.reduce_max(tf.nn.softmax(self._score_candidates(weighted_supp_answers)), [1], keep_dims=True)
                     answer_weight = tf.contrib.layers.fully_connected(tf.concat(1, [query_as_answer * weighted_supp_answers,
                                                                                     weighted_supp_queries * current_query,
-                                                                                    answer_scores]),
+                                                                                    answer_p_max]),
                                                                       1,
                                                                       activation_fn=tf.nn.sigmoid,
                                                                       weights_initializer=tf.constant_initializer(0.0),
